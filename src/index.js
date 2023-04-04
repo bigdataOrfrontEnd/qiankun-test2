@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./public-path"; //这个是解决静态资源加载的问题,放在组件前面
-
+import "./index.scss";
 import "antd/dist/reset.css";
 import App from "./App";
 /** 不是qiankun 聚合的时候进行的加载 */
