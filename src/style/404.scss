@@ -1,0 +1,19 @@
+.context {
+  min-height: 100vh;
+  background-image: linear-gradient(125deg, #6a89cc, #b8e994);
+  .main {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #343434;
+    p {
+      font-size: 160px;
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: 20px;
+      background-image: url("../assets/404.jpg") center no-repeat;
+    }
+  }
+}
