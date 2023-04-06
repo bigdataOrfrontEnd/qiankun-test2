@@ -10,8 +10,40 @@
     font-size: 46px;
   }
   .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 380px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 0 17px #333;
+    h2 {
+      padding: 70px;
+      font-size: 42px;
+      font-weight: 800;
+    }
+    .ant-form {
+      width: 300px;
+      margin: auto;
+    }
+    .ant-input-affix-wrapper {
+      margin-top: 20px;
+      height: 50px;
+    }
+    .ant-radio-wrapper {
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .ant-btn-primary {
+      margin: 20px;
+      width: 200px;
+      height: 50px;
+    }
+  }
+}
+//todo 修改输入框中的字体颜色和大小，两个输入框一起修改
+.ant-input {
+  placeholder {
+    font-size: 16px;
+    font-weight: 800;
   }
 }
