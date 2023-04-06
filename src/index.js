@@ -35,7 +35,11 @@ export async function mount(props) {
   // });
   // props.setGlobalState(state);
   let root = ReactDOM.createRoot(props.container.querySelector("#son"));
-  root.render(<App />);
+  root.render(
+    <Router basename={window.__POWERED_BY_QIANKUN__ ? "/app-test2" : "/"}>
+      <App />
+    </Router>
+  );
 }
 /**
  * 应用每次 切出/卸载 会调用的方法，通常在这里我们会卸载微应用的应用实例

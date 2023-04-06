@@ -1,12 +1,11 @@
-import { useRoutes } from "react-router-dom";
-import Layout from "../pages/Layout";
+import Layout from "../pages/Layout/index";
 import Application from "../pages/home/application";
 import Setting from "../pages/setting";
 import Login from "../pages/Login";
 import Page404 from "../page404";
 import Home from "../pages/home";
 import { DashboardOutlined, UserOutlined } from "@ant-design/icons";
-export const routes = [
+export const Routes = [
   {
     path: "/",
     element: <Layout />,
@@ -47,6 +46,7 @@ export const routes = [
       hideMenu: true,
     },
   },
+
   {
     path: "*",
     element: <Page404 />,
@@ -57,5 +57,5 @@ export const routes = [
     },
   },
 ];
-const Routes = () => useRoutes(routes);
+
 export default Routes;
