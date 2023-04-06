@@ -1,9 +1,10 @@
-import Layout from "../pages/Layout/index";
-import Application from "../pages/home/application";
-import Setting from "../pages/setting";
-import Login from "../pages/Login";
-import Page404 from "../page404";
-import Home from "../pages/home";
+import Layout from "@/pages/Layout/index";
+import Application from "@/pages/home/application";
+import Setting from "@/pages/setting";
+import Login from "@/pages/Login";
+import Page404 from "@/page404";
+import Home from "@/pages/home";
+import WebGl from "@/pages/webgl/WebGl";
 import { DashboardOutlined, UserOutlined } from "@ant-design/icons";
 export const Routes = [
   {
@@ -33,6 +34,15 @@ export const Routes = [
         meta: {
           title: "设置",
           icon: <UserOutlined />, //图表名称
+        },
+      },
+      {
+        path: "webgl",
+        element: <WebGl />,
+        meta: {
+          title: "",
+          noLogin: true,
+          hideMenu: true,
         },
       },
     ],

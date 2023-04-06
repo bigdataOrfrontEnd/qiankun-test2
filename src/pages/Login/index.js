@@ -27,6 +27,7 @@ export default function Login() {
             prefix={<UserOutlined />}
             autoComplete="off"
           ></Input>
+          {/* todo 实现一个功能，这个圆圈勾选了，才能让登录按钮可以使用 */}
           <Radio>
             <Button type="text" onClick={showModal}>
               请认证阅读乡姑纳规定----应该是一个弹框
