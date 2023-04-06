@@ -56,6 +56,10 @@ export const Routes = [
       hideMenu: true,
     },
   },
+  {
+    path: "/butiful",
+    element: <></>,
+  },
 
   {
     path: "*",
