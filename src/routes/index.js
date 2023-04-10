@@ -1,47 +1,51 @@
-import Layout from "@/pages/Layout/index";
-import Application from "@/pages/home/application";
-import Setting from "@/pages/setting";
-import Login from "@/pages/Login";
-import Page404 from "@/page404";
-import Home from "@/pages/home";
+import React, { lazy } from "react";
 import WebGl from "@/pages/webgl/WebGl";
-import { DashboardOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  DashboardOutlined,
+  UserOutlined,
+  ApartmentOutlined,
+} from "@ant-design/icons";
+const Home = lazy(() => import("@/pages/Layout/index"));
+const Setting = lazy(() => import("@/pages/setting/index"));
+const Login = lazy(() => import("@/pages/Login/index"));
+const Page404 = lazy(() => import("@/page404"));
+const Demo = lazy(() => import("@/pages/demo/index"));
 export const Routes = [
   {
     path: "/",
-    element: <Layout />,
+    element: <Home />,
+    name: "wu",
+    meta: {
+      hideMenu: false,
+    },
     children: [
       {
-        path: "home",
-        element: <Home />,
+        path: "webgl",
+        name: "webgl",
+        element: <WebGl />,
         meta: {
-          title: "首页",
+          title: "webgl实验案例",
           icon: <DashboardOutlined />,
+          hideMenu: true,
         },
-        children: [
-          {
-            path: "application",
-            element: <Application />,
-            meta: {
-              title: "应用",
-            },
-          },
-        ],
+      },
+      {
+        path: "demo",
+        name: "demo",
+        element: <Demo />,
+        meta: {
+          title: "react基础知识学习",
+          icon: <UserOutlined />, //图表名称
+          hideMenu: true,
+        },
       },
       {
         path: "setting",
+        name: "setting",
         element: <Setting />,
         meta: {
           title: "设置",
-          icon: <UserOutlined />, //图表名称
-        },
-      },
-      {
-        path: "webgl",
-        element: <WebGl />,
-        meta: {
-          title: "",
-          noLogin: true,
+          icon: <ApartmentOutlined />, //图表名称
           hideMenu: true,
         },
       },
@@ -49,25 +53,31 @@ export const Routes = [
   },
   {
     path: "/login",
+    name: "login",
     element: <Login />,
     meta: {
       title: "登录",
-      noLogin: true,
-      hideMenu: true,
+      hideMenu: false,
     },
   },
   {
     path: "/butiful",
+    name: "butiful",
     element: <></>,
+    meta: {
+      title: "样式案例",
+      icon: "",
+      hideMenu: true,
+    },
   },
-
   {
     path: "*",
+    name: "*",
     element: <Page404 />,
     meta: {
       title: "404",
       noLogin: true,
-      hideMenu: true,
+      hideMenu: false,
     },
   },
 ];
