@@ -8,6 +8,7 @@ import {
 const Home = lazy(() => import("@/pages/Layout/index"));
 const Setting = lazy(() => import("@/pages/setting/index"));
 const Login = lazy(() => import("@/pages/Login/index"));
+const LoginNew = lazy(() => import("@/pages/Login/LoginNew"));
 const Page404 = lazy(() => import("@/page404"));
 const Demo = lazy(() => import("@/pages/demo/index"));
 export const Routes = [
@@ -61,6 +62,15 @@ export const Routes = [
     },
   },
   {
+    path: "/loginnew",
+    name: "loginnew",
+    element: <LoginNew />,
+    meta: {
+      title: "登录",
+      hideMenu: false,
+    },
+  },
+  {
     path: "/butiful",
     name: "butiful",
     element: <></>,
@@ -80,6 +90,9 @@ export const Routes = [
       hideMenu: false,
     },
   },
+  // {
+  //   path: "/adminclic",
+  // }
 ];
 
 export default Routes;
