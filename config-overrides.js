@@ -19,8 +19,9 @@ module.exports = {
       "Access-Control-Allow-Origin": "*",
     };
     config.proxy = {
-      api: {
-        target: "http://localhost:5000",
+      "/api": {
+        target: "http://localhost:5000/",
+        changeOrigin: true,
       },
     };
     config.historyApiFallback = true;

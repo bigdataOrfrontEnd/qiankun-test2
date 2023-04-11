@@ -1,15 +1,15 @@
 // 能发送ajax请求的函数模块
 // 包装axios
-import { Axios } from "axios";
+import axios from "axios";
 import { message } from "antd";
 
 export default function ajax(url, data = {}, method = "GET") {
   return new Promise(function (resolve, reject) {
     let promise;
     if (method === "GET") {
-      promise = Axios.get(url, { params: data });
+      promise = axios.get(url, { params: data });
     } else {
-      promise = Axios.post(url, data);
+      promise = axios.post(url, data);
     }
     promise
       .then((response) => {
