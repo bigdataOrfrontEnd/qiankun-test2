@@ -18,6 +18,11 @@ module.exports = {
     config.headers = {
       "Access-Control-Allow-Origin": "*",
     };
+    config.proxy = {
+      api: {
+        target: "http://localhost:5000",
+      },
+    };
     config.historyApiFallback = true;
     config.hot = false;
     config.watchContentBase = false;
