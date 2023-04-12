@@ -25,19 +25,7 @@ export default class one extends Component {
         <input type="textarea" placeholder="请输入评论内容" />
         <button>发表评论</button>
         <button onClick={this.clear}>清空评论</button>
-        <ul>
-          {this.state.list.length === 0 ? (
-            <p>暂无评论</p>
-          ) : (
-            this.state.list.map((item) => (
-              <li key={item.id}>
-                <h1>评论人：{item.name}</h1>
-                <p>评论内容：{item.content}</p>
-                <button>删除</button>
-              </li>
-            ))
-          )}
-        </ul>
+        <ul>{this.renderList()}</ul>
       </div>
     );
   }
@@ -47,4 +35,18 @@ export default class one extends Component {
       list: [],
     });
   };
+  //处理暂无评论的显示
+  renderList() {
+    if (this.state.list.length === 0) {
+      return <p>暂无评论</p>;
+    } else {
+      return this.state.list.map((item) => (
+        <li key={item.id}>
+          <h1>评论人：{item.name}</h1>
+          <p>评论内容：{item.content}</p>
+          <button>删除</button>
+        </li>
+      ));
+    }
+  }
 }
