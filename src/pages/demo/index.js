@@ -24,13 +24,17 @@ export default function Demo() {
 
   const [state, setState] = useState([options[0]]);
   const handlchang = (value) => {
-    setState(value);
+    setState({ state: value });
+    console.log(state);
   };
   // 根据option不同渲染你需要的组件
   const renderList = () => {
-    if (state === 2) {
+    const { value } = state;
+    if (value === "one") {
+      console.log("222", value);
       return <Onde />;
     } else {
+      console.log("111", value);
       return <div>没有更多内容了</div>;
     }
   };
