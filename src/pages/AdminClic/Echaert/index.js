@@ -52,8 +52,9 @@ export default function Echart() {
       ],
     },
   ];
+  const [option, setOption] = useState(houduan);
   //   2.循环这个数组，看看产生多少个Card，-----也就是产生多少个图表
-
+  // 使用函数组件的时候怎么循环----解决掉它
   // 3.将每个对象的数据传递给子组件----到此完成
   //   4. 具体步骤老婆帮忙实现----需要一起讨论看一下
 
