@@ -20,21 +20,6 @@ export default function LineBarChart() {
       },
     ],
   };
-  const option2 = {
-    xAxis: {
-      type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-    },
-    yAxis: {
-      type: "value",
-    },
-    series: [
-      {
-        data: [150, 230, 224, 218, 135, 147, 260],
-        type: "line",
-      },
-    ],
-  };
   //   屏幕大小变换的回调函数
   const newRsize = (mychart) => {
     //获取当前屏幕尺寸
@@ -47,7 +32,6 @@ export default function LineBarChart() {
       });
     }
   };
-
   useEffect(() => {
     // 初始化图表
     const mychart = echarts.init(chartRef.current);
@@ -56,9 +40,6 @@ export default function LineBarChart() {
     // 响应式，监听屏幕大小变化
     window.addEventListener("resize", newRsize);
     // / 处理点击事件并且跳转到相应的百度搜索页面
-    mychart.on("click", function (params) {
-      mychart.setOption(option2);
-    });
   });
   return <div ref={chartRef} style={{ height: "400px" }}></div>;
 }

@@ -24,7 +24,7 @@ export default function Echart() {
     {
       xAxis: {
         type: "category",
-        data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        data: ["1", "2", "3", "4", "5", "6t", "7"],
       },
       yAxis: {
         type: "value",
@@ -67,15 +67,17 @@ export default function Echart() {
         paddingLeft: "10px",
       }}
     >
-      <Card
-        title="React Echarts 折线"
-        style={{
-          width: 400,
-          textAlign: "center",
-        }}
-      >
-        <LineBarChart />
-      </Card>
+      {option.map((item) => (
+        <Card
+          title="React Echarts 折线"
+          style={{
+            width: 400,
+            textAlign: "center",
+          }}
+        >
+          <LineBarChart />
+        </Card>
+      ))}
     </div>
   );
 }
