@@ -5,6 +5,7 @@ import {
   UserOutlined,
   ApartmentOutlined,
 } from "@ant-design/icons";
+import Echart from "@/pages/AdminClic/Echaert";
 const Home = lazy(() => import("@/pages/Layout/index"));
 const Setting = lazy(() => import("@/pages/setting/index"));
 const Login = lazy(() => import("@/pages/Login/index"));
@@ -90,9 +91,15 @@ export const Routes = [
       hideMenu: false,
     },
   },
-  // {
-  //   path: "/adminclic",
-  // }
+  {
+    path: "/adminclic",
+    name: "adminclic",
+    element: <Echart />,
+    meta: {
+      title: "echaert",
+      hideMenu: false,
+    },
+  },
 ];
 
 export default Routes;

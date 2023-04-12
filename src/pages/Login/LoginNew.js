@@ -1,12 +1,21 @@
 import React, { Component } from "react";
 import "./LoginNew.scss";
 import { Button, Form, Input } from "antd";
-import { reqLogin } from "@/api/AdminClic/login";
+import { reqLogin, getlogin } from "@/api/AdminClic/login";
 export default class LoginNew extends Component {
-  onFinish = (values) => {
+  componentDidMount() {
+    getlogin().then((res) => {
+      console.log(res);
+    });
+  }
+  onFinish = async (values) => {
     const { username, password } = values;
-
-    reqLogin(username, password);
+    try {
+      const request = await reqLogin(username, password);
+      console.log("成功", request.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
   render() {
     return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "antd";
-import Onde from "./one";
+import Onde from "./one/one";
 export default function Demo() {
   return (
     <div>
