@@ -23,9 +23,21 @@ export default class one extends Component {
   render() {
     return (
       <div className="main">
-        <input type="text" placeholder="请输入评论人" />
-        <input type="textarea" placeholder="请输入评论内容" />
-        <button>发表评论</button>
+        <input
+          type="text"
+          placeholder="请输入评论人"
+          value={this.state.name}
+          onChange={this.handleChange}
+          name="name"
+        />
+        <input
+          type="textarea"
+          placeholder="请输入评论内容"
+          value={this.state.content}
+          onChange={this.handleChange}
+          name="content"
+        />
+        <button onClick={this.adds}>发表评论</button>
         <button onClick={this.clear}>清空评论</button>
         <ul>{this.renderList()}</ul>
       </div>
@@ -46,7 +58,6 @@ export default class one extends Component {
         <li key={item.id}>
           <h1>评论人：{item.name}</h1>
           <p>评论内容：{item.content}</p>
-          {/* <button onClick={this.del.bind(this, item.id)}>删除</button> */}
           <button onClick={() => this.del(item.id)}>删除</button>
         </li>
       ));
@@ -59,5 +70,22 @@ export default class one extends Component {
       list: this.state.list.filter((item) => item.id !== id),
     });
   };
+  handleChange = (envt) => {
+    const { name, value } = envt.target;
+    this.setState({
+      [name]: value,
+    });
+  };
   //发表评论，并清空评论输入的地方
+  adds = () => {
+    const { name, list, content } = this.state;
+    if (!name || !content) {
+      return alert("xinximeiy");
+    }
+    this.setState({
+      list: [{ id: Date.now(), name, content }, ...list],
+      name: "",
+      content: "",
+    });
+  };
 }
