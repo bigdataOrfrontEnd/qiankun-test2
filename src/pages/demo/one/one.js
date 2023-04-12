@@ -26,27 +26,25 @@ export default class one extends Component {
         <button>发表评论</button>
         <button onClick={this.clear}>清空评论</button>
         <ul>
-          {this.state.list.map((item) => (
-            <li key={item.id}>
-              <h1>评论人：{item.name}</h1>
-              <p>评论内容：{item.content}</p>
-              <button>删除</button>
-              <p>暂无评论</p>
-            </li>
-          ))}
-
-          <p>暂无评论</p>
+          {this.state.list.length === 0 ? (
+            <p>暂无评论</p>
+          ) : (
+            this.state.list.map((item) => (
+              <li key={item.id}>
+                <h1>评论人：{item.name}</h1>
+                <p>评论内容：{item.content}</p>
+                <button>删除</button>
+              </li>
+            ))
+          )}
         </ul>
       </div>
     );
   }
   // 清空评论
-  // clear = () => {
-  //   this.setState({
-  //     list: [],
-  //   });
-  // };
-  clear() {
-    console.log(this);
-  }
+  clear = () => {
+    this.setState({
+      list: [],
+    });
+  };
 }
