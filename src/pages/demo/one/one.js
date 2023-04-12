@@ -24,28 +24,29 @@ export default class one extends Component {
         <input type="text" placeholder="请输入评论人" />
         <input type="textarea" placeholder="请输入评论内容" />
         <button>发表评论</button>
-        <button>清空评论</button>
+        <button onClick={this.clear}>清空评论</button>
         <ul>
-          {/* {this.state.list.map((item) => (
+          {this.state.list.map((item) => (
             <li key={item.id}>
               <h1>评论人：{item.name}</h1>
               <p>评论内容：{item.content}</p>
               <button>删除</button>
               <p>暂无评论</p>
             </li>
-          ))} */}
-          {this.state.list.map((item) => {
-            return (
-              <li key={item.id}>
-                <h1>评论人：{item.name}</h1>
-                <p>评论内容：{item.content}</p>
-                <button>删除</button>
-              </li>
-            );
-          })}
+          ))}
+
           <p>暂无评论</p>
         </ul>
       </div>
     );
+  }
+  // 清空评论
+  // clear = () => {
+  //   this.setState({
+  //     list: [],
+  //   });
+  // };
+  clear() {
+    console.log(this);
   }
 }
