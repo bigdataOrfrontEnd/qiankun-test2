@@ -1,0 +1,83 @@
+.content {
+  padding: 50px 0;
+  min-height: 100vh;
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  .drop {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+    // background: black;
+    box-shadow: inset 20px 20px 20px 20px rgb(0, 0, 0, 0.05),
+      20px 20px 20px 20px rgb(0, 0, 0, 0.05),
+      20px 20px 20px 20px rgb(0, 0, 0, 0.05),
+      20px 20px 20px 20px rgb(0, 0, 0, 0.05);
+    transition: 0.5s ease-in-out;
+    &:nth-child(1) {
+      border-radius: 52% 48% 0% 100% / 0% 40% 60% 100%;
+    }
+    &:nth-child(2) {
+      border-radius: 9% 91% 59% 41% / 57% 100% 0% 43%;
+    }
+    &:nth-child(3) {
+      border-radius: 43% 57% 59% 41% / 57% 52% 48% 43%;
+    }
+    &:hover {
+      border-radius: 50%;
+    }
+    &::before {
+      position: absolute;
+      top: 10px;
+      left: 80px;
+      content: "";
+      width: 80px;
+      height: 80px;
+      background: #fff;
+      border-radius: 50%;
+    }
+    &::after {
+      position: absolute;
+      top: 20px;
+      left: 150px;
+      content: "";
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border-radius: 50%;
+    }
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 200px;
+      gap: 10px;
+      h2 {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      a {
+        text-decoration: none;
+        background-color: aqua;
+        padding: 10px;
+        border-radius: 25px;
+        font-weight: 500;
+        &:hover {
+          color: azure;
+        }
+      }
+    }
+  }
+}
