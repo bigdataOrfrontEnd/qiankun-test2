@@ -3,6 +3,7 @@
   font-family: "Poppins";
 }
 .container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +13,7 @@
   padding: 50px 0;
   gap: 40px 60px; //设置网格行与列之间的间隙
   .drop {
+    position: relative;
     transition: 0.5s ease-in-out; //鼠标动画效果
     width: 350px;
     height: 350px;
@@ -30,6 +32,28 @@
     }
     &:hover {
       border-radius: 50%;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 90px;
+      left: 80px;
+      width: 35px;
+      height: 35px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.9;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 120px;
+      left: 120px;
+      width: 15px;
+      height: 15px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.9;
     }
   }
 }
