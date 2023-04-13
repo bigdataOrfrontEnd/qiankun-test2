@@ -5,6 +5,7 @@ export default class classIndex extends Component {
     const { car, money } = this.props;
     return (
       <div>
+        <h1>类组件</h1>
         {car},{money}
       </div>
     );

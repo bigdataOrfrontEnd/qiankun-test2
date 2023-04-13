@@ -4,6 +4,7 @@ import Onde from "./one/one";
 import Twon from "./one/twn";
 import Communication from "./communication";
 import ClassIndex from "./communication/classIndex";
+import Father from "./communication/demo/father";
 export default function Demo() {
   //下拉框数据
   const options = [
@@ -22,6 +23,11 @@ export default function Demo() {
       key: 4,
       value: "foru",
       label: "类组件实现通信",
+    },
+    {
+      key: 5,
+      value: "five",
+      label: "父子通信综合案例（函数组件）",
     },
   ];
 
@@ -42,6 +48,8 @@ export default function Demo() {
         return <Communication car="小黄车" money={100} />;
       case "foru":
         return <ClassIndex car="小黄车" money={100} />;
+      case "five":
+        return <Father />;
       default:
         return <div>没有更多内容了</div>;
     }
@@ -58,7 +66,6 @@ export default function Demo() {
         onChange={handlchang}
       />
       <div>{renderList()}</div>
-      <div></div>
     </div>
   );
 }
