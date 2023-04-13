@@ -17,6 +17,9 @@
     transition: 0.5s ease-in-out; //鼠标动画效果
     width: 350px;
     height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     // background: #333;
     box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
       25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05),
@@ -54,6 +57,15 @@
       background: #fff;
       border-radius: 50%;
       opacity: 0.9;
+    }
+    .content {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px;
+      gap: 15px;
     }
   }
 }
