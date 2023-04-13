@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Select } from "antd";
 import Onde from "./one/one";
 import Twon from "./one/twn";
+import Communication from "./communication";
 export default function Demo() {
   //下拉框数据
   const options = [
@@ -13,8 +14,8 @@ export default function Demo() {
     { key: 2, value: "two", label: "受控组件样例" },
     {
       key: 3,
-      value: "treee",
-      label: "3",
+      value: "tree",
+      label: "组件间通信",
     },
     {
       key: 4,
@@ -36,6 +37,8 @@ export default function Demo() {
 
       case "two":
         return <Twon />;
+      case "tree":
+        return <Communication car="小黄车" money={100} />;
       default:
         return <div>没有更多内容了</div>;
     }
