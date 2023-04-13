@@ -9,7 +9,7 @@
   flex-wrap: wrap; //一行放不下怎么处理
   min-height: 100vh;
   background: #eff0f4;
-  //   padding: 50px 0;
+  padding: 50px 0;
   gap: 40px 60px; //设置网格行与列之间的间隙
   .drop {
     width: 350px;
@@ -18,5 +18,8 @@
     box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
       25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05),
       inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+    &:nth-child(1) {
+      border-radius: 37% 63% 46% 54% / 23% 22% 78% 77%;
+    }
   }
 }
