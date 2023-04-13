@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; //一行放不下怎么处理
+  min-height: 100vh;
+  background: #eff0f4;
+  //   padding: 50px 0;
+  gap: 40px 60px; //设置网格行与列之间的间隙
+  .drop {
+    width: 350px;
+    height: 350px;
+    // background: #333;
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05);
+  }
+}

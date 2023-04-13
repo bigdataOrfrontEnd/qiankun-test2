@@ -4,8 +4,10 @@ import {
   DashboardOutlined,
   UserOutlined,
   ApartmentOutlined,
+  RiseOutlined,
 } from "@ant-design/icons";
 import Echart from "@/pages/AdminClic/Echaert";
+import WaterDrop from "@/pages/butiful/waterDrop/waterDrop";
 const Home = lazy(() => import("@/pages/Layout/index"));
 const Setting = lazy(() => import("@/pages/setting/index"));
 const Login = lazy(() => import("@/pages/Login/index"));
@@ -74,10 +76,10 @@ export const Routes = [
   {
     path: "/butiful",
     name: "butiful",
-    element: <></>,
+    element: <WaterDrop />,
     meta: {
       title: "样式案例",
-      icon: "",
+      icon: <RiseOutlined />,
       hideMenu: true,
     },
   },
