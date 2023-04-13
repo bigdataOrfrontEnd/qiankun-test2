@@ -15,3 +15,4 @@ function inits(gl, VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE) {
   gl.useProgram(program);
   return program;
 }
+export default inits;
