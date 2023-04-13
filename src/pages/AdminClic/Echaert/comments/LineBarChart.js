@@ -2,24 +2,24 @@ import React from "react";
 import { useEffect, useRef } from "react";
 import * as echarts from "echarts";
 //ehcart 第一步创建一个ref，然后使用
-export default function LineBarChart() {
+export default function LineBarChart({ option }) {
   const chartRef = useRef(null); //创建一个DOM
   //渲染需要的数据,这个数据可以通过父组件传递过来
-  const option = {
-    xAxis: {
-      type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-    },
-    yAxis: {
-      type: "value",
-    },
-    series: [
-      {
-        data: [150, 230, 224, 218, 135, 147, 260],
-        type: "bar",
-      },
-    ],
-  };
+  // const option = {
+  //   xAxis: {
+  //     type: "category",
+  //     data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  //   },
+  //   yAxis: {
+  //     type: "value",
+  //   },
+  //   series: [
+  //     {
+  //       data: [150, 230, 224, 218, 135, 147, 260],
+  //       type: "bar",
+  //     },
+  //   ],
+  // };
   //   屏幕大小变换的回调函数
   const newRsize = (mychart) => {
     //获取当前屏幕尺寸
