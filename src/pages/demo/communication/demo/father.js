@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import Child from "./child";
-export default function Father() {
+export default function Father(props) {
   const [wifl, setWifl] = useState("");
+  const [sonwif, setSonwifl] = useState("");
   const handlechange = (e) => {
     console.log(e);
     setWifl(e.target.value);
+  };
+  const chnagname = (name) => {
+    console.log(name);
+    setSonwifl(name);
   };
   return (
     <div>
@@ -19,8 +24,10 @@ export default function Father() {
           name="text"
         />
       </label>
+      <br />
+      来自子组件的值：{sonwif}
       <hr />
-      <Child wifi={wifl} />
+      <Child wifi={wifl} namee={chnagname} />
     </div>
   );
 }
