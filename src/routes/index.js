@@ -15,6 +15,7 @@ const LoginNew = lazy(() => import("@/pages/Login/LoginNew"));
 const Page404 = lazy(() => import("@/page404"));
 const Demo = lazy(() => import("@/pages/demo/index"));
 const Butl = lazy(() => import("@/pages/butiful/new/one"));
+const HomeLout = lazy(() => import("@/pages/butiful/two/index"));
 export const Routes = [
   {
     path: "/",
@@ -90,6 +91,16 @@ export const Routes = [
     element: <Butl />,
     meta: {
       title: "样式案例2",
+      icon: <RiseOutlined />,
+      hideMenu: true,
+    },
+  },
+  {
+    path: "/butiful3",
+    name: "butiful3",
+    element: <HomeLout />,
+    meta: {
+      title: "样式案例3",
       icon: <RiseOutlined />,
       hideMenu: true,
     },
