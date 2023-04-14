@@ -5,6 +5,7 @@ import Twon from "./one/twn";
 import Communication from "./communication";
 import ClassIndex from "./communication/classIndex";
 import Father from "./communication/demo/father";
+import TodoMvc from "./todoMvc";
 export default function Demo() {
   //下拉框数据
   const options = [
@@ -29,6 +30,11 @@ export default function Demo() {
       value: "five",
       label: "父子通信综合案例（函数组件）",
     },
+    {
+      key: 6,
+      value: "six",
+      label: "TodoMvc类组件版",
+    },
   ];
 
   const [state, setState] = useState("one");
@@ -50,6 +56,8 @@ export default function Demo() {
         return <ClassIndex car="小黄车" money={100} />;
       case "five":
         return <Father />;
+      case "six":
+        return <TodoMvc />;
       default:
         return <div>没有更多内容了</div>;
     }
