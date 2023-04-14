@@ -28,6 +28,13 @@ export default function Father(props) {
       来自子组件的值：{sonwif}
       <hr />
       <Child wifi={wifl} namee={chnagname} />
+      <hr />
+      <hr />
+      <h2>字符通信</h2>
+      子组件向父组件传递信息的时候，
+      <p> 1. 父组件定义一个函数，然后传递给子组件 </p>
+      <p>2. 子组件通过props拿到这个函数，</p>
+      <p>3. 把要传递的值按照参数的形式传递给父组件里面的函数</p>
     </div>
   );
 }
