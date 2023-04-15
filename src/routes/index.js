@@ -5,6 +5,7 @@ import {
   UserOutlined,
   ApartmentOutlined,
   RiseOutlined,
+  PlusSquareOutlined,
 } from "@ant-design/icons";
 import Echart from "@/pages/AdminClic/Echaert";
 import WaterDrop from "@/pages/butiful/waterDrop/waterDrop";
@@ -16,6 +17,7 @@ const Page404 = lazy(() => import("@/page404"));
 const Demo = lazy(() => import("@/pages/demo/index"));
 const Butl = lazy(() => import("@/pages/butiful/new/one"));
 const HomeLout = lazy(() => import("@/pages/butiful/two/index"));
+const TodoMvc = lazy(() => import("@/pages/demo/todoMvc/todo/index"));
 export const Routes = [
   {
     path: "/",
@@ -102,6 +104,16 @@ export const Routes = [
     meta: {
       title: "样式案例3",
       icon: <RiseOutlined />,
+      hideMenu: true,
+    },
+  },
+  {
+    path: "/todomvc",
+    name: "todomvc",
+    element: <TodoMvc />,
+    meta: {
+      title: "todomvc案例",
+      icon: <PlusSquareOutlined />,
       hideMenu: true,
     },
   },
