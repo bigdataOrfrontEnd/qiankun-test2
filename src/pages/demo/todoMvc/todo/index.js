@@ -25,7 +25,7 @@ export default class TodoStyle extends Component {
           TodoDone={this.Done}
           onkoedd={this.onkeyup}
         ></TodoMain>
-        <TodoFooter></TodoFooter>
+        <TodoFooter list={this.state.listDate}></TodoFooter>
       </section>
     );
   }
