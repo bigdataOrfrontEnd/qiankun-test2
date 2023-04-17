@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 export default class TodoMain extends Component {
-  del = (id) => {
-    this.props.del(id);
-  };
   render() {
     return (
       <section className="main">
@@ -14,7 +11,13 @@ export default class TodoMain extends Component {
             // 是否有直线completed
             <li key={item.id} className={item.done ? "completed" : ""}>
               <div className="view">
-                <input className="toggle" type="checkbox" />
+                <input
+                  className="toggle"
+                  type="checkbox"
+                  checked={item.done}
+                  onChange={() => this.changhadle(item.id)}
+                  name="radot"
+                />
                 <label> {item.name}</label>
                 <button
                   className="destroy"
@@ -30,4 +33,10 @@ export default class TodoMain extends Component {
       </section>
     );
   }
+  del = (id) => {
+    this.props.del(id);
+  };
+  changhadle = (id) => {
+    this.props.TodoDone(id);
+  };
 }

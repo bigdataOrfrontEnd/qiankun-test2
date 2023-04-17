@@ -19,9 +19,32 @@ export default class TodoStyle extends Component {
     return (
       <section className="todoapp">
         <TodoHeader></TodoHeader>
-        <TodoMain Data={listDate} del={this.del}></TodoMain>
+        <TodoMain
+          Data={listDate}
+          del={this.delTodo}
+          TodoDone={this.Done}
+        ></TodoMain>
         <TodoFooter></TodoFooter>
       </section>
     );
   }
+  delTodo = (id) => {
+    this.setState({
+      listDate: this.state.listDate.filter((item) => item.id !== id),
+    });
+  };
+  Done = (id) => {
+    this.setState({
+      listDate: this.state.listDate.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            done: !item.done,
+          };
+        } else {
+          return item;
+        }
+      }),
+    });
+  };
 }
