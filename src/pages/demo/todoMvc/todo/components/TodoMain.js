@@ -8,7 +8,8 @@ export default class TodoMain extends Component {
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
           {this.props.Data.map((item) => (
-            <li key={item.id}>
+            // 是否有直线completed
+            <li key={item.id} className={item.done ? "completed" : ""}>
               <div className="view">
                 <input className="toggle" type="checkbox" />
                 <label> {item.name}</label>
