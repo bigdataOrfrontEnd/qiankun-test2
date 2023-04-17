@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 export default class TodoMain extends Component {
+  del = (id) => {
+    this.props.del(id);
+  };
   render() {
     return (
       <section className="main">
@@ -13,7 +16,12 @@ export default class TodoMain extends Component {
               <div className="view">
                 <input className="toggle" type="checkbox" />
                 <label> {item.name}</label>
-                <button className="destroy"></button>
+                <button
+                  className="destroy"
+                  onClick={() => {
+                    this.del(item.id);
+                  }}
+                ></button>
               </div>
               <input className="edit" />
             </li>
