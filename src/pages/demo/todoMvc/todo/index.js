@@ -18,7 +18,7 @@ export default class TodoStyle extends Component {
     const { listDate } = this.state;
     return (
       <section className="todoapp">
-        <TodoHeader></TodoHeader>
+        <TodoHeader addTdos={this.addtdos}></TodoHeader>
         <TodoMain
           Data={listDate}
           del={this.delTodo}
@@ -45,6 +45,14 @@ export default class TodoStyle extends Component {
           return item;
         }
       }),
+    });
+  };
+  addtdos = (addname) => {
+    this.setState({
+      listDate: [
+        { id: Date.now(), name: addname, done: false },
+        ...this.state.listDate,
+      ],
     });
   };
 }
