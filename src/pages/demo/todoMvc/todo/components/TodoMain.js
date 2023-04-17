@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-
+import classNames from "classnames";
 export default class TodoMain extends Component {
+  state = {
+    cunruentid: "",
+  };
   render() {
     return (
       <section className="main">
@@ -9,7 +12,13 @@ export default class TodoMain extends Component {
         <ul className="todo-list">
           {this.props.Data.map((item) => (
             // 是否有直线completed
-            <li key={item.id} className={item.done ? "completed" : ""}>
+            <li
+              key={item.id}
+              className={classNames({
+                completed: item.done,
+                editing: this.state.cunruentid === item.id,
+              })}
+            >
               <div className="view">
                 <input
                   className="toggle"
@@ -18,7 +27,10 @@ export default class TodoMain extends Component {
                   onChange={() => this.changhadle(item.id)}
                   name="radot"
                 />
-                <label> {item.name}</label>
+                <label onDoubleClick={() => this.onDoubleClick(item.id)}>
+                  {" "}
+                  {item.name}
+                </label>
                 <button
                   className="destroy"
                   onClick={() => {
@@ -38,5 +50,10 @@ export default class TodoMain extends Component {
   };
   changhadle = (id) => {
     this.props.TodoDone(id);
+  };
+  onDoubleClick = (id) => {
+    this.setState({
+      cunruentid: id,
+    });
   };
 }
