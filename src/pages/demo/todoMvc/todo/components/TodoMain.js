@@ -42,6 +42,7 @@ export default class TodoMain extends Component {
                 className="edit"
                 value={this.state.curentname}
                 onChange={(e) => this.setState({ curentname: e.target.value })}
+                onKeyUp={this.onkesd}
               />
             </li>
           ))}
@@ -60,5 +61,21 @@ export default class TodoMain extends Component {
       cunruentid: id,
       curentname: name,
     });
+  };
+  onkesd = (e) => {
+    console.log(e);
+    if (e.keyCode === 27) {
+      this.setState({
+        cunruentid: "",
+        curentname: "",
+      });
+    }
+    if (e.keyCode === 13) {
+      this.props.onkoedd(this.state.cunruentid, this.state.curentname);
+      this.setState({
+        cunruentid: "",
+        curentname: "",
+      });
+    }
   };
 }

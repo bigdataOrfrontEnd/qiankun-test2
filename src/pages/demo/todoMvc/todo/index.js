@@ -23,6 +23,7 @@ export default class TodoStyle extends Component {
           Data={listDate}
           del={this.delTodo}
           TodoDone={this.Done}
+          onkoedd={this.onkeyup}
         ></TodoMain>
         <TodoFooter></TodoFooter>
       </section>
@@ -53,6 +54,20 @@ export default class TodoStyle extends Component {
         { id: Date.now(), name: addname, done: false },
         ...this.state.listDate,
       ],
+    });
+  };
+  onkeyup = (id, name) => {
+    this.setState({
+      listDate: this.state.listDate.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            name,
+          };
+        } else {
+          return item;
+        }
+      }),
     });
   };
 }
