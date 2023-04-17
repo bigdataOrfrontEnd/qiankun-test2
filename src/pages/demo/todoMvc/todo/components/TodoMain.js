@@ -3,6 +3,7 @@ import classNames from "classnames";
 export default class TodoMain extends Component {
   state = {
     cunruentid: "",
+    curentname: "",
   };
   render() {
     return (
@@ -27,8 +28,7 @@ export default class TodoMain extends Component {
                   onChange={() => this.changhadle(item.id)}
                   name="radot"
                 />
-                <label onDoubleClick={() => this.onDoubleClick(item.id)}>
-                  {" "}
+                <label onDoubleClick={() => this.onDoubleClick(item)}>
                   {item.name}
                 </label>
                 <button
@@ -38,7 +38,11 @@ export default class TodoMain extends Component {
                   }}
                 ></button>
               </div>
-              <input className="edit" />
+              <input
+                className="edit"
+                value={this.state.curentname}
+                onChange={(e) => this.setState({ curentname: e.target.value })}
+              />
             </li>
           ))}
         </ul>
@@ -51,9 +55,10 @@ export default class TodoMain extends Component {
   changhadle = (id) => {
     this.props.TodoDone(id);
   };
-  onDoubleClick = (id) => {
+  onDoubleClick = ({ id, name }) => {
     this.setState({
       cunruentid: id,
+      curentname: name,
     });
   };
 }
