@@ -19,7 +19,7 @@ export default class TodoStyle extends Component {
       listDate: JSON.parse(localStorage.getItem("todo")) || [],
     });
   }
-  //村本地
+  //存本地
   componentDidUpdate() {
     localStorage.setItem("todo", JSON.stringify(this.state.listDate));
   }
