@@ -67,9 +67,18 @@ export default class TodoFooter extends Component {
     this.props.clear();
   };
   // 获取显示的类型
-  handleClick = (type) => {
-    this.setState({
-      type,
+  handleClick = (type) => {};
+  componentDidMount() {
+    window.addEventListener("hashchange", () => {
+      console.log("罗友变换了", window.location.hash.split("/")[1]);
+      this.setState(
+        {
+          type: window.location.hash.split("/")[1],
+        },
+        () => {
+          this.props.type(this.state.type);
+        }
+      );
     });
-  };
+  }
 }

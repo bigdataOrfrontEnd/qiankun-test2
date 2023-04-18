@@ -25,7 +25,11 @@ export default class TodoStyle extends Component {
           TodoDone={this.Done}
           onkoedd={this.onkeyup}
         ></TodoMain>
-        <TodoFooter list={this.state.listDate} clear={this.clear}></TodoFooter>
+        <TodoFooter
+          list={this.state.listDate}
+          clear={this.clear}
+          type={this.tpyemethod}
+        ></TodoFooter>
       </section>
     );
   }
@@ -74,5 +78,29 @@ export default class TodoStyle extends Component {
     this.setState({
       listDate: this.state.listDate.filter((item) => !item.done),
     });
+  };
+  tpyemethod = (type) => {
+    switch (type) {
+      case "active":
+        this.setState({
+          listDate: this.state.listDate.filter((item) => item.done),
+        });
+        break;
+      case "all":
+        this.setState({
+          listDate: this.state.listDate,
+        });
+        break;
+      case "completed":
+        this.setState({
+          listDate: this.state.listDate.filter((item) => !item.done),
+        });
+        break;
+      default:
+        this.setState({
+          listDate: this.state.listDate,
+        });
+        break;
+    }
   };
 }
