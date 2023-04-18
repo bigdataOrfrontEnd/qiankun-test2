@@ -25,7 +25,7 @@ export default class TodoMain extends Component {
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
           {showData.map((item) => (
-            <TodoItem item={item} key={item.id} />
+            <TodoItem item={item} key={item.id} {...this.props} />
           ))}
         </ul>
       </section>

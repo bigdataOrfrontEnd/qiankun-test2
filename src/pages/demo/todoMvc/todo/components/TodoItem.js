@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import classNames from "classnames";
 export default class TodoItem extends Component {
   state = {
     cunruentid: "",
     curentname: "",
   };
+  inputRef = createRef(null);
   render() {
     const item = this.props.item;
     console.log(item);
@@ -39,6 +40,8 @@ export default class TodoItem extends Component {
           value={this.state.curentname}
           onChange={(e) => this.setState({ curentname: e.target.value })}
           onKeyUp={this.onkesd}
+          onBlur={() => this.setState({ cunruentid: "" })}
+          ref={this.inputRef}
         />
       </li>
     );
@@ -50,10 +53,15 @@ export default class TodoItem extends Component {
     this.props.TodoDone(id);
   };
   onDoubleClick = ({ id, name }) => {
-    this.setState({
-      cunruentid: id,
-      curentname: name,
-    });
+    this.setState(
+      {
+        cunruentid: id,
+        curentname: name,
+      },
+      () => {
+        this.inputRef.current.focus();
+      }
+    );
   };
   onkesd = (e) => {
     console.log(e);
