@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 export default class TodoFooter extends Component {
+  state = {
+    type: "all",
+  };
   render() {
     const { list } = this.props;
     if (list.length === 0) {
@@ -15,13 +18,37 @@ export default class TodoFooter extends Component {
           </span>
           <ul className="filters">
             <li>
-              <a href="#/">All</a>
+              <a
+                href="#/"
+                className={this.state.type === "all" ? "selected" : ""}
+                onClick={() => {
+                  this.handleClick("all");
+                }}
+              >
+                All
+              </a>
             </li>
             <li>
-              <a href="#/active">Active</a>
+              <a
+                href="#/active"
+                className={this.state.type === "active" ? "selected" : ""}
+                onClick={() => {
+                  this.handleClick("active");
+                }}
+              >
+                Active
+              </a>
             </li>
             <li>
-              <a href="#/completed">Completed</a>
+              <a
+                href="#/completed"
+                className={this.state.type === "completed" ? "selected" : ""}
+                onClick={() => {
+                  this.handleClick("completed");
+                }}
+              >
+                Completed
+              </a>
             </li>
           </ul>
           {isShow ? (
@@ -38,5 +65,11 @@ export default class TodoFooter extends Component {
   //清除已经完成的任务
   clear = () => {
     this.props.clear();
+  };
+  // 获取显示的类型
+  handleClick = (type) => {
+    this.setState({
+      type,
+    });
   };
 }

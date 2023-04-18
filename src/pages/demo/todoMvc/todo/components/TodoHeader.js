@@ -29,6 +29,9 @@ export default class TodoHeader extends Component {
         return alert("不能为空");
       } else {
         this.props.addTdos(this.state.addTods);
+        this.setState({
+          addTods: "",
+        });
       }
     }
   };
