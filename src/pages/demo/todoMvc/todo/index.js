@@ -12,10 +12,11 @@ export default class TodoStyle extends Component {
       { id: "2", name: "侠岚", done: true },
       { id: "3", name: "小风", done: false },
     ],
+    type: "all",
   };
 
   render() {
-    const { listDate } = this.state;
+    const { listDate, type } = this.state;
     return (
       <section className="todoapp">
         <TodoHeader addTdos={this.addtdos}></TodoHeader>
@@ -24,11 +25,13 @@ export default class TodoStyle extends Component {
           del={this.delTodo}
           TodoDone={this.Done}
           onkoedd={this.onkeyup}
+          type={type}
         ></TodoMain>
         <TodoFooter
           list={this.state.listDate}
           clear={this.clear}
-          type={this.tpyemethod}
+          type={this.state.type}
+          typechange={this.tpyemethod}
         ></TodoFooter>
       </section>
     );
@@ -80,27 +83,8 @@ export default class TodoStyle extends Component {
     });
   };
   tpyemethod = (type) => {
-    switch (type) {
-      case "active":
-        this.setState({
-          listDate: this.state.listDate.filter((item) => item.done),
-        });
-        break;
-      case "all":
-        this.setState({
-          listDate: this.state.listDate,
-        });
-        break;
-      case "completed":
-        this.setState({
-          listDate: this.state.listDate.filter((item) => !item.done),
-        });
-        break;
-      default:
-        this.setState({
-          listDate: this.state.listDate,
-        });
-        break;
-    }
+    this.setState({
+      type,
+    });
   };
 }

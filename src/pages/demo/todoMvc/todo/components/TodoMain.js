@@ -6,12 +6,22 @@ export default class TodoMain extends Component {
     curentname: "",
   };
   render() {
+    const { Data, type } = this.props;
+    console.log(type);
+    let showData = [];
+    if (type === "completed") {
+      showData = Data.filter((item) => item.done);
+    } else if (type === "active") {
+      showData = Data.filter((item) => !item.done);
+    } else {
+      showData = Data;
+    }
     return (
       <section className="main">
         <input id="toggle-all" className="toggle-all" type="checkbox" />
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
-          {this.props.Data.map((item) => (
+          {showData.map((item) => (
             // 是否有直线completed
             <li
               key={item.id}

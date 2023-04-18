@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 
 export default class TodoFooter extends Component {
-  state = {
-    type: "all",
-  };
   render() {
-    const { list } = this.props;
+    const { list, type } = this.props;
     if (list.length === 0) {
       return null;
     } else {
@@ -20,7 +17,7 @@ export default class TodoFooter extends Component {
             <li>
               <a
                 href="#/"
-                className={this.state.type === "all" ? "selected" : ""}
+                className={type === "all" ? "selected" : ""}
                 onClick={() => {
                   this.handleClick("all");
                 }}
@@ -31,7 +28,7 @@ export default class TodoFooter extends Component {
             <li>
               <a
                 href="#/active"
-                className={this.state.type === "active" ? "selected" : ""}
+                className={type === "active" ? "selected" : ""}
                 onClick={() => {
                   this.handleClick("active");
                 }}
@@ -42,7 +39,7 @@ export default class TodoFooter extends Component {
             <li>
               <a
                 href="#/completed"
-                className={this.state.type === "completed" ? "selected" : ""}
+                className={type === "completed" ? "selected" : ""}
                 onClick={() => {
                   this.handleClick("completed");
                 }}
@@ -71,14 +68,8 @@ export default class TodoFooter extends Component {
   componentDidMount() {
     window.addEventListener("hashchange", () => {
       console.log("罗友变换了", window.location.hash.split("/")[1]);
-      this.setState(
-        {
-          type: window.location.hash.split("/")[1],
-        },
-        () => {
-          this.props.type(this.state.type);
-        }
-      );
+
+      this.props.typechange(window.location.hash.split("/")[1]);
     });
   }
 }
