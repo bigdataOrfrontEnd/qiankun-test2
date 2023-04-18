@@ -4,7 +4,7 @@ export default class RenderProps extends Component {
   render() {
     return (
       <div>
-        <All>{(t) => <B s={t}></B>}</All>
+        <All render={(rr) => <A m={rr} />} />
       </div>
     );
   }
@@ -23,7 +23,13 @@ class B extends Component {
 // 组件2
 class A extends Component {
   render() {
-    return <div>4444</div>;
+    const { x, y } = this.props.m;
+    return (
+      <div>
+        <h1>看来这个鼠标达到了复用的效果</h1>
+        {x}-{y}
+      </div>
+    );
   }
 }
 //只写逻辑
@@ -45,6 +51,6 @@ class All extends Component {
     window.removeEventListener("mousemove", this.mouse);
   }
   render() {
-    return this.props.children(this.state);
+    return this.props.render(this.state);
   }
 }
