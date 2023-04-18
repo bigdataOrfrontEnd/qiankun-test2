@@ -25,7 +25,7 @@ export default class TodoStyle extends Component {
           TodoDone={this.Done}
           onkoedd={this.onkeyup}
         ></TodoMain>
-        <TodoFooter list={this.state.listDate}></TodoFooter>
+        <TodoFooter list={this.state.listDate} clear={this.clear}></TodoFooter>
       </section>
     );
   }
@@ -68,6 +68,11 @@ export default class TodoStyle extends Component {
           return item;
         }
       }),
+    });
+  };
+  clear = () => {
+    this.setState({
+      listDate: this.state.listDate.filter((item) => !item.done),
     });
   };
 }

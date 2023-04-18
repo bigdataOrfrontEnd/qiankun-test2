@@ -7,6 +7,7 @@ export default class TodoFooter extends Component {
       return null;
     } else {
       const ledtitem = list.filter((item) => !item.done).length;
+      const isShow = list.some((item) => item.done);
       return (
         <footer className="footer">
           <span className="todo-count">
@@ -23,10 +24,19 @@ export default class TodoFooter extends Component {
               <a href="#/completed">Completed</a>
             </li>
           </ul>
-
-          <button className="clear-completed">Clear completed</button>
+          {isShow ? (
+            <button className="clear-completed" onClick={this.clear}>
+              Clear completed
+            </button>
+          ) : (
+            ""
+          )}
         </footer>
       );
     }
   }
+  //清除已经完成的任务
+  clear = () => {
+    this.props.clear();
+  };
 }
