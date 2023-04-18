@@ -9,7 +9,7 @@ export default class TodoStyle extends Component {
   render() {
     return (
       <section className="todoapp">
-        <TodoHeader></TodoHeader>
+        <TodoHeader>sce </TodoHeader>
         <TodoMain></TodoMain>
         <TodoFooter></TodoFooter>
       </section>
