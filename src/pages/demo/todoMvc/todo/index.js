@@ -26,6 +26,7 @@ export default class TodoStyle extends Component {
           TodoDone={this.Done}
           onkoedd={this.onkeyup}
           type={type}
+          checke={this.checke}
         ></TodoMain>
         <TodoFooter
           list={this.state.listDate}
@@ -85,6 +86,11 @@ export default class TodoStyle extends Component {
   tpyemethod = (type) => {
     this.setState({
       type,
+    });
+  };
+  checke = (thce) => {
+    this.setState({
+      listDate: this.state.listDate.map((item) => ({ ...item, done: thce })),
     });
   };
 }

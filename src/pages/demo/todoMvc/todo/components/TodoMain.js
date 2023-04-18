@@ -18,7 +18,13 @@ export default class TodoMain extends Component {
     }
     return (
       <section className="main">
-        <input id="toggle-all" className="toggle-all" type="checkbox" />
+        <input
+          id="toggle-all"
+          className="toggle-all"
+          type="checkbox"
+          checked={Data.every((item) => item.done)}
+          onChange={this.checakAll}
+        />
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
           {showData.map((item) => (
@@ -87,5 +93,9 @@ export default class TodoMain extends Component {
         curentname: "",
       });
     }
+  };
+  checakAll = (e) => {
+    console.log(e.target.checked);
+    this.props.checke(e.target.checked);
   };
 }
