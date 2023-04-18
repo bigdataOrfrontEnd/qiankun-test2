@@ -1,5 +1,9 @@
 import React from "react";
-
+import RenderProps from "./rende";
 export default function Setting() {
-  return <div>Setting</div>;
+  return (
+    <div>
+      <RenderProps />
+    </div>
+  );
 }

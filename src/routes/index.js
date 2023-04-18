@@ -52,7 +52,7 @@ export const Routes = [
         name: "setting",
         element: <Setting />,
         meta: {
-          title: "设置",
+          title: "高阶组件，render props,hooks使用",
           icon: <ApartmentOutlined />, //图表名称
           hideMenu: true,
         },
