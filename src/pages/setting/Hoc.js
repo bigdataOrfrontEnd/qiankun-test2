@@ -1,6 +1,22 @@
 import React, { Component } from "react";
-
+import { getData } from "@/api/fetch";
 export default class Hoc extends Component {
+  state = {
+    date: "",
+  };
+  componentDidMount() {
+    getData().then(
+      (req) => {
+        console.log(req);
+        this.setState({
+          date: req,
+        });
+      },
+      () => {
+        console.log(this.state.date);
+      }
+    );
+  }
   render() {
     const PositonsMoust = WithMouse(Position);
     return <PositonsMoust />;
@@ -25,8 +41,13 @@ const WithMouse = (Base) => {
       window.removeEventListener("mousemove", this.mouse);
     }
     render() {
-      // 这个地方为啥要结构
-      return <Base {...this.state}></Base>;
+      // 这个地方为啥要结构<Base {...this.state}></Base>
+      return (
+        <div>
+          {this.state.date}
+          11
+        </div>
+      );
     }
   }
   return Mouse;

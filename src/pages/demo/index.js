@@ -6,6 +6,7 @@ import Communication from "./communication";
 import ClassIndex from "./communication/classIndex";
 import Father from "./communication/demo/father";
 import TodoMvc from "./todoMvc";
+import Hooks from "./communication/hooks";
 export default function Demo() {
   //下拉框数据
   const options = [
@@ -35,6 +36,11 @@ export default function Demo() {
       value: "six",
       label: "TodoMvc类组件版",
     },
+    {
+      key: 7,
+      value: "seven",
+      label: "hooks组件的使用",
+    },
   ];
 
   const [state, setState] = useState("one");
@@ -58,6 +64,8 @@ export default function Demo() {
         return <Father />;
       case "six":
         return <TodoMvc />;
+      case "seven":
+        return <Hooks />;
       default:
         return <div>没有更多内容了</div>;
     }

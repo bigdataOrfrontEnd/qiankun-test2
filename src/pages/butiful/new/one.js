@@ -2,7 +2,7 @@ import React from "react";
 import "./one.scss";
 export default function Wate() {
   return (
-    <div className="content">
+    <div className="content1">
       <div className="drop">
         <div className="main">
           <h2>01</h2>
